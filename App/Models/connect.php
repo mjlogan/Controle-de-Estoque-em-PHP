@@ -6,17 +6,17 @@
  class Connect
  {
  	
- 	var $localhost = "localhost";
- 	var $root = "root";
+ 	var $dbhost = "";
+ 	var $dbuser = "";
  	var $passwd = "";
- 	var $database = "controlestoque";
+ 	var $database = "";
  	var $SQL;
  	
 
 
  	public function __construct()
  	{
- 		$this->SQL = mysqli_connect($this->localhost, $this->root, $this->passwd);
+ 		$this->SQL = mysqli_connect($this->dbhost, $this->dbuser, $this->passwd);
 		mysqli_select_db($this->SQL, $this->database);
 		if(!$this->SQL){
 			die("Conexão com o banco de dados falhou!:" . mysqli_connect_error($this->SQL)); 
