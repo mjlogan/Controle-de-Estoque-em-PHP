@@ -6,10 +6,10 @@
  class Connect
  {
  	
- 	var $dbhost = "";
- 	var $dbuser = "";
- 	var $passwd = "";
- 	var $database = "";
+ 	var $dbhost = "data.andreabalista.com.br";
+ 	var $dbuser = "vendasabc";
+ 	var $passwd = "Juquinh4!";
+ 	var $database = "vendaschocolatier";
  	var $SQL;
  	
 

@@ -50,11 +50,11 @@ echo '<div class="content-wrapper">
           if($value == 1){
            
             $public = 0;
-            $button_name = "Inativos";
+            $button_name = "Mostrar Inativos";
 
           }else{
             $public = 1;
-            $button_name = "Publicados";
+            $button_name = "Mostrar Publicados";
           }     
 
         }else{
@@ -69,8 +69,8 @@ echo '<div class="content-wrapper">
             <!-- /.box-body -->
             <div class="box-footer clearfix no-border">
             <form action="index.php" method="post">
-         <button name="public" type="submit" value="'.$public.'" class="btn btn-default pull-left"><i class="fa fa-plus"></i> '.$button_name.'</button></form>
-              <a href="addprod.php" type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add Produto</a>
+         <button name="public" type="submit" value="'.$public.'" class="btn btn-default pull-left"><i class="fa fa-archive"></i> '.$button_name.'</button></form>
+              <a href="addprod.php" type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Adicionar Produto</a>
             </div>
           </div>
 	 
@@ -86,4 +86,3 @@ echo '</div>';
 echo  $footer;
 echo $javascript;
 ?>
-

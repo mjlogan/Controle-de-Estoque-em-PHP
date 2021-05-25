@@ -16,9 +16,7 @@ require_once '../Models/produtos.class.php';
 			}elseif($iduser == $idUsuario){
 				$produtos->InsertProd($nomeProduto, $idUsuario);
 			}
-			
-
-
+			header('Location: ../../views/prod/index.php');
 		}else{
 			header('Location: ../../views/prod/index.php?alert=0');
 		}
@@ -26,3 +24,4 @@ require_once '../Models/produtos.class.php';
 	}else{
 		header('Location: ../../views/prod/index.php');
 	}
+?>
