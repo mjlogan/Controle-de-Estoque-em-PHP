@@ -10,11 +10,11 @@ echo '<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Itens cadastrados
+        Movimento de Estoque
       </h1>
       <ol class="breadcrumb">
         <li><a href="../"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Itens</li>
+        <li class="active">Estoque</li>
       </ol>
     </section>
 
@@ -62,8 +62,8 @@ echo '<div class="content-wrapper">
            
             <div class="box-footer clearfix no-border">
              <form action="index.php" method="post">
-         <button name="public" type="submit" value="'.$public.'" class="btn btn-default pull-left"><i class="fa fa-plus"></i> '.$button_name.'</button></form>
-              <a href="additens.php" type="button" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add Itens</a>
+         <button name="public" type="submit" value="'.$public.'" class="btn btn-default pull-left"><i class="fa fa-archive"></i> '.$button_name.'</button></form>
+              <a href="additens.php" type="button" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Adicionar Item</a>
             </div>
           </div>
 	 

@@ -1,4 +1,4 @@
-  <?php
+<?php
   require_once '../../App/auth.php';
   require_once '../../layout/script.php';
 
@@ -12,7 +12,7 @@
   echo '<div class="content-wrapper">';
 
 if($perm != 1){
-          echo "Você não tem permissão! </div>";
+          echo "Você não tem permissão! (".$perm.")</div>";
 
           exit();
         }

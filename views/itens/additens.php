@@ -59,7 +59,7 @@ echo '
             </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">QuantItens</label>
+                  <label for="exampleInputEmail1">Quantidade</label>
                   <input type="text" name="QuantItens" class="form-control" id="exampleInputEmail1" placeholder="QuantItens">
                 </div>
 

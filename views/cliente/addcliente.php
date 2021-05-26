@@ -1,4 +1,4 @@
-  <?php
+<?php
   require_once '../../App/auth.php';
   require_once '../../layout/script.php';
 

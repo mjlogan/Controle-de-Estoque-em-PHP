@@ -205,7 +205,7 @@ $head = '<!DOCTYPE html>
 
 $header = '<header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -273,7 +273,7 @@ $header = '<header class="main-header">
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      <!--<form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
@@ -281,7 +281,7 @@ $header = '<header class="main-header">
                 </button>
               </span>
         </div>
-      </form>
+      </form>-->
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
@@ -306,10 +306,10 @@ $header = '<header class="main-header">
           </a>
           <ul class="treeview-menu">
             <li><a href="'.$url.'prod/"><i class="fa fa-circle-o"></i>Produtos</a></li>
-            <li><a href="'.$url.'prod/addprod.php"><i class="fa fa-circle-o"></i>Add Produtos</a></li>
-            <li><a href="'.$url.'itens/"><i class="fa fa-circle-o"></i>Itens</a></li>
-             <li><a href="'.$url.'itens/totalitens.php"><i class="fa fa-circle-o"></i>Total Itens</a></li>
-            <li><a href="'.$url.'itens/additens.php"><i class="fa fa-circle-o"></i>Add Itens</a></li>
+            <!--<li><a href="'.$url.'prod/addprod.php"><i class="fa fa-circle-o"></i>Add Produtos</a></li>-->
+            <li><a href="'.$url.'itens/"><i class="fa fa-circle-o"></i>Movimento Estoque</a></li>
+             <li><a href="'.$url.'itens/totalitens.php"><i class="fa fa-circle-o"></i>Estoque Consolidado</a></li>
+            <!--<li><a href="'.$url.'itens/additens.php"><i class="fa fa-circle-o"></i>Add Itens</a></li>-->
           </ul>
         </li>
 
@@ -323,7 +323,7 @@ $header = '<header class="main-header">
           </a>
           <ul class="treeview-menu">
             <li><a href="'.$url.'fabricante/"><i class="fa fa-circle-o"></i>Fabricantes</a></li>
-            <li><a href="'.$url.'fabricante/addfabricante.php"><i class="fa fa-circle-o"></i>Add Fabricante</a></li>
+            <!--<li><a href="'.$url.'fabricante/addfabricante.php"><i class="fa fa-circle-o"></i>Add Fabricante</a></li>-->
           </ul>
         </li>
 
@@ -337,21 +337,21 @@ $header = '<header class="main-header">
           </a>
           <ul class="treeview-menu">
             <li><a href="'.$url.'representante/"><i class="fa fa-circle-o"></i>Representantes</a></li>
-            <li><a href="'.$url.'representante/addRepresentante.php"><i class="fa fa-circle-o"></i>Add Representante</a></li>
+            <!--<li><a href="'.$url.'representante/addrepresentante.php"><i class="fa fa-circle-o"></i>Add Representante</a></li>-->
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i>
-            <span>Usuários</span>
+            <span>Usuário</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="'.$url.'usuarios/"><i class="fa fa-circle-o"></i>Lista</a></li>
-            <li><a href="'.$url.'usuarios/addusuarios.php"><i class="fa fa-circle-o"></i>Add Usuários</a></li>
+            <li><a href="'.$url.'usuarios/"><i class="fa fa-circle-o"></i>Usuários</a></li>
+            <!--<li><a href="'.$url.'usuarios/addusuarios.php"><i class="fa fa-circle-o"></i>Add Usuário</a></li>-->
           </ul>
         </li>
 
@@ -364,8 +364,8 @@ $header = '<header class="main-header">
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="'.$url.'cliente/"><i class="fa fa-circle-o"></i>Lista</a></li>
-            <li><a href="'.$url.'cliente/addcliente.php"><i class="fa fa-circle-o"></i>Add Cliente</a></li>
+            <li><a href="'.$url.'cliente/"><i class="fa fa-circle-o"></i>Clientes</a></li>
+            <!--<li><a href="'.$url.'cliente/addcliente.php"><i class="fa fa-circle-o"></i>Add Cliente</a></li>-->
             
           </ul>
         </li>
@@ -379,17 +379,11 @@ $header = '<header class="main-header">
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="'.$url.'vendas/"><i class="fa fa-circle-o"></i>Vendas</a></li>
+            <li><a href="'.$url.'vendas/"><i class="fa fa-circle-o"></i>Registrar venda</a></li>
             
           </ul>
         </li>
 
-        
-        <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

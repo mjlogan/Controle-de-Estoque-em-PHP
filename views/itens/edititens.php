@@ -18,7 +18,7 @@ echo '<div class="content-wrapper">';
 echo '<!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Adicionar <small>Produtos</small>
+        Editar <small>Produtos</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="../"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -64,8 +64,8 @@ echo '
             </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">QuantItens</label>
-                  <input type="text" name="QuantItens" class="form-control" id="exampleInputEmail1" placeholder="QuantItens" value="'.$resp['Itens']['QuantItens'].'">
+                  <label for="exampleInputEmail1">Quantidade</label>
+                  <input type="nummber" name="QuantItens" class="form-control" id="exampleInputEmail1" placeholder="QuantItens" value="'.$resp['Itens']['QuantItens'].'">
                 </div>
 
                 <div class="form-group">

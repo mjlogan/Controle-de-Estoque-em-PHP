@@ -1,4 +1,4 @@
-  <?php
+<?php
 
   /*
    Class produtos
@@ -215,7 +215,6 @@
       WHERE `idItens`= '$idItens'";
 
       if($this->result = mysqli_query($this->SQL, $this->query) or die(mysqli_error($this->SQL))){
-
         header('Location: ../../views/itens/index.php?alert=1');
       }else{
         header('Location: ../../views/itens/index.php?alert=0');

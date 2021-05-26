@@ -44,10 +44,10 @@
           <!-- General tools such as edit or delete-->
           <div class="tools right">
 
-                      <a href="" data-toggle="modal" data-target="#myModalup'.$row['CodRefProduto'].'"><i class="fa fa-edit"></i></a> 
+                      <a href="" title="Editar Produto" data-toggle="modal" data-target="#myModalup'.$row['CodRefProduto'].'"><i class="fa fa-edit"></i></a> 
                     
                       <!-- Button trigger modal -->
-                    <a href="" data-toggle="modal" data-target="#myModal'.$row['CodRefProduto'].'">';
+                    <a href="" title="Desativar produto" data-toggle="modal" data-target="#myModal'.$row['CodRefProduto'].'">';
 
                     if($row['PublicProduto'] == 0){echo '<i class="glyphicon glyphicon-remove" aria-hidden="true"></i>';}else{ echo '<i class="glyphicon glyphicon-ok" aria-hidden="true"></i>';}
 
@@ -61,7 +61,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Você tem serteza que deseja alterar o status deste item na sua lista.</h4>
+            <h4 class="modal-title" id="myModalLabel">Deseja desativar este produto?</h4>
           </div>
           <div class="modal-body">
             Nome: '.$row['NomeProduto'].'
@@ -85,7 +85,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Você tem serteza que deseja alterar o status deste item na sua lista.</h4>
+            <h4 class="modal-title" id="myModalLabel">Editar descrição do produto</h4>
           </div>
           <div class="modal-body">
             Nome Atual:
@@ -94,8 +94,8 @@
           <input type="hidden" id="id" name="id" value="'.$row['CodRefProduto'].'">
           
           <div class="modal-footer">
-            <button type="submit" value="Cancelar" class="btn btn-default">Não</button>
-            <button type="submit" name="update" value="Cadastrar" class="btn btn-primary">Sim</button>
+            <button type="submit" value="Cancelar" class="btn btn-default">Cancelar</button>
+            <button type="submit" name="update" value="Cadastrar" class="btn btn-primary">Confirmar</button>
           </div>
         </div>
       </div>

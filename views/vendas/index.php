@@ -39,7 +39,7 @@ echo '<div class="content-wrapper">
 ?>
 
  <!-- Cliente list PHP -->
-  <?php  
+<?php
 
           if(isset($_POST['CPF'])){ 
 
@@ -139,7 +139,7 @@ echo '<div class="content-wrapper">
 
           <tbody id="listable">
             
-            <?php          
+<?php
 	/*
 	Existe uma atualização no PHP 7.2 que modifica o uso do "count" if(count($_SESSION['itens']) == 0), 
 	no caso de você esta utilizando está versão ou superior,
