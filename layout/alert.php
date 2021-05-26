@@ -29,7 +29,7 @@ echo '<div class="box-body">';
 		case '2':
 			echo '<div class="alert alert-warning alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-warning"></i> Error! Cliente já cadastrado.</h4>
+                <h4><i class="icon fa fa-warning"></i> Error! Registro já cadastrado.</h4>
                 </div>';
 			break;
 		
