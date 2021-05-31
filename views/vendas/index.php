@@ -3,6 +3,7 @@ require_once '../../App/auth.php';
 require_once '../../layout/script.php';
 require_once '../../App/Models/vendas.class.php';
 require_once '../../App/Models/cliente.class.php';
+require_once '../../App/Models/itens.class.php';
 
 echo $head;
 echo $header;
@@ -107,15 +108,20 @@ echo '<div class="content-wrapper">
 
   <div class="box">
     <div class="box-header with-border">
-      <h3 class="box-title">Lista de Produtos</h3>
+      <h3 class="box-title">Produtos Disponíveis</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
       <div class="row">
         
         <div class="form-group col-xs-12 col-sm-4">
-          
-          <input type="number" id="idItem" name="idItem" class="form-control" placeholder="Item">
+          <select id="idItem" name="idItem" class="form-control">
+            <option value="">--selecione--</option>
+            <?php 
+            $itens = new Itens;
+            $itens->listaProdutosEstoque()
+             ?>
+          </select>
         </div>
         <div class="form-group col-xs-12 col-sm-4">
           

@@ -21,11 +21,12 @@
            $q = $q + $rowlist['QuantItens'];  
            $v = $v + $rowlist['QuantItensVend'];   
            $e = $q - $v;               
+           $IdProduto = $rowlist['Produto_CodRefProduto'];
            $NomeProduto = $rowlist['NomeProduto'];
            $fabricante  = $rowlist['NomeFabricante'];
       }
       
-        return array('NomeProduto'=> $NomeProduto,'Fabricante'=> $fabricante , 'QuantItens' => $q, 'QuantItensVend' => $v, 'Estoque' => $e,); 
+        return array('IdProduto' => $IdProduto, 'NomeProduto'=> $NomeProduto,'Fabricante'=> $fabricante , 'QuantItens' => $q, 'QuantItensVend' => $v, 'Estoque' => $e,); 
 
     }
 
@@ -47,6 +48,21 @@
         echo ' | Em Estoque: '.$resp['Estoque'];
         echo '</li>';
 
+      }
+
+    }
+   	
+    public function listaProdutosEstoque()
+    {
+      $this->query = "SELECT `Produto_CodRefProduto`, `Fabricante_idFabricante` FROM `itens` WHERE `itensPublic` = '1' GROUP BY `Produto_CodRefProduto`, `Fabricante_idFabricante`";
+      $this->result = mysqli_query($this->SQL, $this->query) or die ( mysqli_error($this->SQL));
+      while ($row = mysqli_fetch_array($this->result)) {
+        
+        $idprodutos = $row['Produto_CodRefProduto'];
+        $idFabricante = $row['Fabricante_idFabricante'];
+        
+        $resp = Itens::listItens($idprodutos, $idFabricante);
+          echo('<option value="'.$resp['IdProduto'].'">'.$resp['NomeProduto']. ' ('.$resp['Estoque'].')</option>');
       }
 
     }

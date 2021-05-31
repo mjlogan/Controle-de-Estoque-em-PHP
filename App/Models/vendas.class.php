@@ -146,35 +146,35 @@ class Vendas extends Connect
 
 	}// itensVendidos
 
-    public function idcliente($cpfCliente){
+  public function idcliente($cpfCliente){
 
-        $this->client = "SELECT * FROM `cliente` WHERE `cpfCliente` = '$cpfCliente'";
+      $this->client = "SELECT * FROM `cliente` WHERE `cpfCliente` = '$cpfCliente'";
 
-            if($this->resultcliente = mysqli_query($this->SQL, $this->client)  or die (mysqli_error($this->SQL))){
+          if($this->resultcliente = mysqli_query($this->SQL, $this->client)  or die (mysqli_error($this->SQL))){
 
-                $row = mysqli_fetch_array($this->resultcliente);
-                return $idCliente = $row['idCliente'];
-            }
-    }
+              $row = mysqli_fetch_array($this->resultcliente);
+              return $idCliente = $row['idCliente'];
+          }
+  }
 
-    //----------itemNome
+  //----------itemNome
 
-    public function itemNome($idItens){
+  public function itemNome($idItens){
 
     $query = "SELECT * FROM `produtos` WHERE `CodRefProduto` IN (SELECT `Produto_CodRefProduto` FROM `itens` WHERE `idItens` = '$idItens' AND `ItensAtivo` = 1 AND `ItensPublic` = 1)";
 
     $result = mysqli_query($this->SQL, $query)  or die (mysqli_error($this->SQL));
                 
-        $row = mysqli_fetch_array($result);
-        
-        if($row['NomeProduto'] != NULL){    
-            $resp = $row['NomeProduto'];
-        
+    $row = mysqli_fetch_array($result);
+    
+    if($row['NomeProduto'] != NULL){    
+        $resp = $row['NomeProduto'];
+    
     }else{
       $resp = NULL;
     }
     
-    return $resp;
+      return $resp;
   }//--itemNome
 
   public function notavd($cart){
@@ -185,12 +185,12 @@ class Vendas extends Connect
 
       while($row = mysqli_fetch_array($this->result)){
        $out[] = $row;
-     }
+      }
      
-   }
+    }
 
-   return $out;
- }//--notavd
+     return $out;
+   }//--notavd
 
  public function dadosItem($idItem){
   
@@ -201,8 +201,6 @@ class Vendas extends Connect
     $row = mysqli_fetch_array($this->result);
 
     return $row;
-  }
-} //---dadosItem
+  } //---dadosItem
 
-    
-}//Class
+}//-- Class
