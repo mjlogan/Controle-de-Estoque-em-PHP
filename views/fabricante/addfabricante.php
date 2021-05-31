@@ -10,7 +10,6 @@
         
 
   echo '<div class="content-wrapper">';
-
 if($perm != 1){
           echo "Você não tem permissão! (".$perm.")</div>";
 
@@ -99,7 +98,7 @@ if($perm != 1){
 
                 <div class="box-footer">
                   <button type="submit" name="upload" class="btn btn-primary" value="Cadastrar">Cadastrar</button>
-                  <a class="btn btn-danger" href="../../views/prod">Cancelar</a>
+                  <a class="btn btn-danger" href="../../views/fabricante">Cancelar</a>
                 </div>
               </form>
             </div>

@@ -11,7 +11,7 @@ echo '<div class="content-wrapper">';
 echo '<!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Adicionar <small>Produtos</small>
+        Adicionar <small>Movimento de Estoque</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="../"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -64,20 +64,20 @@ echo '
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">ValCompItens</label>
-                  <input type="text" name="ValCompItens" class="form-control" id="exampleInputEmail1" placeholder="ValCompItens">
+                  <label for="exampleInputEmail1">Valor de compra</label>
+                  <input disabled="true" type="text" name="ValCompItens" class="form-control" id="exampleInputEmail1" placeholder="Valor" value="0">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">ValVendItens</label>
-                  <input type="text" name="ValVendItens" class="form-control" id="exampleInputEmail1" placeholder="ValVendItens">
+                  <label for="exampleInputEmail1">Valor de venda</label>
+                  <input type="text" name="ValVendItens" class="form-control" id="exampleInputEmail1" placeholder="Valor">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">DataCompraItens</label>
-                  <input type="text" name="DataCompraItens" class="form-control" id="exampleInputEmail1" placeholder="DataCompraItens">
+                  <label for="exampleInputEmail1">Data de compra</label>
+                  <input type="text" name="DataCompraItens" class="form-control" id="exampleInputEmail1" placeholder="Data de compra">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">DataVenci_Itens</label>
-                  <input type="text" name="DataVenci_Itens" class="form-control" id="exampleInputEmail1" placeholder="DataVenci_Itens">
+                  <label for="exampleInputEmail1">Data de vencimento</label>
+                  <input type="text" name="DataVenci_Itens" class="form-control" id="exampleInputEmail1" placeholder="Data de vencimento">
                 </div>
 
                 <div class="form-group">

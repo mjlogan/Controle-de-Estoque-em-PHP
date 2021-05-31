@@ -12,7 +12,7 @@ echo '<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Itens cadastrados
+        Registrar Venda
       </h1>
       <ol class="breadcrumb">
         <li><a href="../"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -123,7 +123,7 @@ echo '<div class="content-wrapper">
         </div>
 
         <div class="form-group col-xs-12 col-sm-4">
-          <button type="button" id="prodSubmit" name="prodSubmit" onclick="prodSubmit();" value="carrinho" class="btn btn-primary col-xs-12">Registrar</button>
+          <button type="button" id="prodSubmit" name="prodSubmit" onclick="prodSubmit();" value="carrinho" class="btn btn-primary col-xs-12">Adicionar</button>
         </div>
       </div>
 

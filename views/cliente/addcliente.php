@@ -12,7 +12,7 @@
   echo '<div class="content-wrapper">';
  
  require '../../layout/alert.php';
-
+echo $perm;
 if($perm != 1){
           echo "Você não tem permissão! </div>";
 
