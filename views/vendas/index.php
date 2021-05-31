@@ -123,7 +123,7 @@ echo '<div class="content-wrapper">
         </div>
 
         <div class="form-group col-xs-12 col-sm-4">
-          <button type="button" id="prodSubmit" name="prodSubmit" onclick="prodSubmit();" value="carrinho" class="btn btn-primary col-xs-12">Adicionar</button>
+          <button type="button" id="prodSubmit" name="prodSubmit" value="carrinho" class="btn btn-primary col-xs-12">Adicionar</button>
         </div>
       </div>
 
@@ -135,7 +135,6 @@ echo '<div class="content-wrapper">
             <th>Qtde</th>
             <th style="width:40px" title="Remover">Del</th>
           </tr>
-          
 
           <tbody id="listable">
             

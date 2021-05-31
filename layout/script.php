@@ -39,7 +39,7 @@ $head = '<!DOCTYPE html>
   
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="'.$url.'plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
 
 <!-- Imprimir Venda -->
@@ -120,7 +120,8 @@ $head = '<!DOCTYPE html>
 
  $(document).ready(function(){
 
-      $("#prodSubmit").click(function()  {
+  $("#prodSubmit").click(function()  {
+    console.log("add carrinho");
     var prodSubmit = $("#prodSubmit").val();
     var idItem = $("#idItem").val();
     var qtd = $("#qtd").val();
@@ -132,22 +133,19 @@ $head = '<!DOCTYPE html>
       success: function(data){
               $(\'#listable\').fadeIn();  
               $(\'#listable\').html(data);
+      }
+    });
+  }); 
 
-          }
-      });
-    }); 
-
-    $(\'#listable\').on("click","li", function(){  
-           $(\'#idItem\').val($(data).text());
-           $(\'#qtd\').val($(data).text());  
-           $(\'#listable\').fadeOut();
-          
-            return false;
-
-           <!-- console.log(event.target);-->
-      });           
-            
+  $(\'#listable\').on("click","li", function(){  
+    $(\'#idItem\').val($(data).text());
+    $(\'#qtd\').val($(data).text());  
+    $(\'#listable\').fadeOut();
     
+      return false;
+
+    <!-- console.log(event.target);-->
+  });           
  });  
  </script>
 
@@ -594,11 +592,10 @@ $header = '<header class="main-header">
   $javascript = '
 
   </div>
-<!-- jQuery 2.2.3 -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <!-- jQuery UI 1.11.4 -->
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge(\'uibutton\', $.ui.button);
