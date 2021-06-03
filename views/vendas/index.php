@@ -138,7 +138,7 @@ echo '<div class="content-wrapper">
           <tr>
             <th style="width: 10px">#</th>
             <th>Cod.</th>
-            <th>Qtde</th>
+            <th>Qtde.</th>
             <th style="width:40px" title="Remover">Del</th>
           </tr>
 

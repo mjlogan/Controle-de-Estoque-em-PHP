@@ -22,7 +22,7 @@ if(isset($_POST['prodSubmit']) && $_POST['prodSubmit'] == "carrinho"){
 
 $pkCount = (is_array($_SESSION['itens']) ? count($_SESSION['itens']) : 0);
   if ($pkCount == 0) {
-	echo ' Carrinho Vazios</br> ';
+	echo ' Carrinho Vazio</br> ';
 
 }else{
 
