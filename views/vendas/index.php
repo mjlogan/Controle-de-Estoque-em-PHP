@@ -138,6 +138,7 @@ echo '<div class="content-wrapper">
           <tr>
             <th style="width: 10px">#</th>
             <th>Cod.</th>
+            <th>Descrição</th>
             <th>Qtde.</th>
             <th style="width:40px" title="Remover">Del</th>
           </tr>
@@ -205,7 +206,7 @@ echo '<div class="content-wrapper">
                 <!-- /.box-body -->
 
                 <div class="box-footer">
-                  <button type="submit" name="comprar" class="btn btn-primary" value="Cadastrar">Comprar</button>
+                  <button type="submit" name="comprar" class="btn btn-primary" value="Cadastrar">Confirmar compra</button>
                   <a class="btn btn-danger" href="../../views/vendas/">Cancelar</a>
                 </div>
               </form>

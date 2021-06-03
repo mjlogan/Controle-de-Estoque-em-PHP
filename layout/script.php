@@ -146,7 +146,7 @@ $head = '<!DOCTYPE html>
     $.ajax({
       type: "POST",
       url: "'.$url.'../App/Database/carrinho.php",
-      data: {prodSubmit: prodSubmit, idItem: idItem, qtd:qtd},
+      data: {prodSubmit: prodSubmit, idItem: idItem, qtd:qtd, description: itemDescription},
       success: function(data){
               $(\'#listable\').fadeIn();  
               $(\'#listable\').html(data);
