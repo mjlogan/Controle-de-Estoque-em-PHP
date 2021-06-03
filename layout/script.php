@@ -121,10 +121,27 @@ $head = '<!DOCTYPE html>
  $(document).ready(function(){
 
   $("#prodSubmit").click(function()  {
-    console.log("add carrinho");
     var prodSubmit = $("#prodSubmit").val();
     var idItem = $("#idItem").val();
+    var addedProductData = $("#idItem option:selected").text();
+    var availableStock = parseInt(addedProductData.substring(addedProductData.lastIndexOf("(") + 1, addedProductData.lastIndexOf(")")));
+    var itemDescription = addedProductData.substring(0, addedProductData.lastIndexOf(" ("));
     var qtd = $("#qtd").val();
+    
+    if(!idItem){
+      alert("Selecione um produto para adicionar ao carrinho.");
+      return;
+    }
+    
+    if(!qtd || qtd < 1){
+      alert("Selecione uma quantidade válida de itens para adicionar ao carrinho.");
+      return;
+    }
+    
+    if(qtd > availableStock){
+        alert("Existem apenas "+availableStock+" itens desse produto em estoque.\nNão é possível adicionar "+qtd+" itens ao carrinho.\nCorrija a quantidade e tente novamente.");
+        return;
+    }
     
     $.ajax({
       type: "POST",
