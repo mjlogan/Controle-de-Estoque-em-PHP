@@ -173,17 +173,18 @@ echo '<div class="content-wrapper">
               $cont = 1;
               
 
-              foreach ($_SESSION['itens'] as $produtos => $quantidade) {
+              foreach ($_SESSION['itens'] as $produtos => $information) {
 
                 
                 
                 echo '<tr>
                 <td>'. $cont .'</td>
                 <td>'. $produtos .'</td>                
-                <td>'. $quantidade .'</td>
+                <td>'. $information[1] .'</td>
+                <td>'. $information[0] .'</td>
                 <td>
                 <input type="hidden" id="idItem" name="idItem['.$produtos.']" value="'.$produtos.'" /> 
-                <input type="hidden" id="qtd" name="qtd['.$produtos.']" value="'.$quantidade.'" />
+                <input type="hidden" id="qtd" name="qtd['.$produtos.']" value="'.$information[0].'" />
                 <a title="Remover item código '. $produtos .'." href="../../App/Database/remover.php?remover=carrinho&id='.$produtos.'"><i class="fa fa-trash text-danger"></i></a>
                 </td>
                 </tr>';
