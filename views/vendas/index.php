@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once '../../App/auth.php';
 require_once '../../layout/script.php';
 require_once '../../App/Models/vendas.class.php';
@@ -42,20 +46,19 @@ echo '<div class="content-wrapper">
  <!-- Cliente list PHP -->
 <?php
 
-          if(isset($_POST['CPF'])){ 
+          if(isset($_POST['search'])){ 
 
             $cliente = new Cliente;
-            $resps = $cliente->searchdata($_POST["CPF"]);  
+            $resps = $cliente->searchdata($_POST["search"]);  
             
-              if($resps > 0 && $_POST['CPF'] != NULL){
-               
+              if($resps > 0 && $_POST['search'] != NULL){
+               echo($resps);
                 foreach ($resps['data'] as $resp) { 
 
-                 $_SESSION['CPF'] = $resp['cpfCliente'];
+                //  $_SESSION['CPF'] = $resp['cpfCliente'];
                  $_SESSION['Cliente'] = $resp['NomeCliente'];
                  $_SESSION['Email'] = $resp['EmailCliente'];
-                 $_SESSION['cart'] = MD5('@?#'.$resp['cpfCliente'].'@'.date("d-m-Y H:i:s"));
-                 
+                 $_SESSION['cart'] = MD5('@?#'.$resp['EmailCliente'].'@'.date("d-m-Y H:i:s"));
                 }
                 
               }
@@ -74,7 +77,7 @@ echo '<div class="content-wrapper">
             <div class="box-body">
             <div class="col-lg-6">
               <div class="input-group">
-                <input type="text" class="form-control" id="cpfCliente" name="CPF" placeholder="Pesquisar CPF" autocomplete="off">
+                <input type="text" class="form-control" id="cpfCliente" name="search" placeholder="Pesquisar Nome ou E-mail" autocomplete="off">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-save"></span></button>
                 </span>
@@ -99,10 +102,10 @@ echo '<div class="content-wrapper">
                   <label for="exampleInputEmail1">E-mail</label>
                   <input type="text" name="emailCliente" class="form-control" id="exampleInputEmail1" placeholder="E-mail" value="<?php if(isset($_SESSION['Email'])){ echo $_SESSION['Email']; } ?>" />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="exampleInputEmail1">CPF</label>
                   <input type="number" name="cpfcliente" class="form-control" id="exampleInputcpf1" placeholder="CPF" value="<?php if(isset($_SESSION['CPF'])){ echo $_SESSION['CPF']; } ?>" />
-                </div>
+                </div> -->
 
 <!-- Tabela de produtos -->
 
@@ -208,7 +211,7 @@ echo '<div class="content-wrapper">
 
                 <div class="box-footer">
                   <button type="submit" name="comprar" class="btn btn-primary" value="Cadastrar">Confirmar compra</button>
-                  <a class="btn btn-danger" href="../../views/vendas/">Cancelar</a>
+                  <a class="btn btn-danger" href="clearCart.php">Cancelar / Limpar carrinho</a>
                 </div>
               </form>
 

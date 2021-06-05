@@ -139,7 +139,7 @@ class Cliente extends Connect
         if(isset($value))  
         {  
           //$output = '';  
-          $query = "SELECT * FROM `cliente` WHERE `cpfCliente` LIKE '".$value."%' OR `NomeCliente` LIKE '".$value."%' LIMIT 5";  
+          $query = "SELECT * FROM `cliente` WHERE `EmailCliente` LIKE '%".$value."%' OR `NomeCliente` LIKE '".$value."%' LIMIT 5";  
           $result = mysqli_query($this->SQL, $query); 
 
           if(mysqli_num_rows($result) > 0)  
@@ -149,7 +149,7 @@ class Cliente extends Connect
            {  
               
             $output[] = $row; 
-          } 
+            } 
 
           return array('data' => $output);
 
@@ -172,7 +172,7 @@ class Cliente extends Connect
       if(isset($value))  
       {  
         //$output = '';  
-        $query = "SELECT * FROM `cliente` WHERE `cpfCliente` = '$value'";  
+        $query = "SELECT * FROM `cliente` WHERE `EmailCliente` = '$value' OR `NomeCliente` = '$value'";
         $result = mysqli_query($this->SQL, $query);  
         if(mysqli_num_rows($result) > 0)  
         {  
@@ -183,7 +183,7 @@ class Cliente extends Connect
           }  
           return array('data' => $output); 
         }else{
-          return $value;
+          return null;
         } 
       }  
     }//----searchdata------

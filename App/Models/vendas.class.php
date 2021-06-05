@@ -196,11 +196,12 @@ class Vendas extends Connect
   
   $query = "SELECT * FROM `fabricante`, `produtos`, `itens` WHERE `idItens` = '$idItem' AND `Produto_CodRefProduto` = `CodRefProduto` AND `Fabricante_idFabricante` = `idFabricante`";
 
-  if($this->result = mysqli_query($this->SQL, $query)  or die (mysqli_error($this->SQL))){
+    if($this->result = mysqli_query($this->SQL, $query)  or die (mysqli_error($this->SQL))){
 
-    $row = mysqli_fetch_array($this->result);
+      $row = mysqli_fetch_array($this->result);
 
-    return $row;
+      return $row;
+    }
   } //---dadosItem
 
 }//-- Class

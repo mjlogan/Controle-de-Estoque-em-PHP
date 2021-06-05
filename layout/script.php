@@ -85,23 +85,32 @@ $head = '<!DOCTYPE html>
 <script type="text/javascript">
  
  $(document).ready(function(){  
+      window.searchHisteresis = 5000;
+      window.shouldSearch = true;
       $(\'#cpfCliente\').keyup(function(){  
-           var query = $(this).val();  
-           if(query != "")  
-           {  
-                $.ajax({  
-                     url:"'.$url.'../App/Database/search.php",  
-                     method:"POST",  
-                     data:{query:query},  
-                     success:function(data)  
-                     {  
-                          
-                          $(\'#Listdata\').fadeIn();  
-                          $(\'#Listdata\').html(data);  
-                     }  
-                });  
-           }  
-      });  
+        if(!window.shouldSearch)  return;
+        else {
+          setTimeout(function(){ window.shouldSearch = true; doSearch(); }, searchHisteresis);
+          window.shouldSearch = false;
+        }
+      });
+
+      function doSearch(){
+        var query = $(\'#cpfCliente\').val();
+        if(query != "")  
+        {  
+             $.ajax({  
+                  url:"'.$url.'../App/Database/search.php",  
+                  method:"POST",  
+                  data:{query:query},  
+                  success:function(data)  
+                  {  
+                       $(\'#Listdata\').fadeIn();  
+                       $(\'#Listdata\').html(data);  
+                  }  
+             });  
+        }
+     }
 
 
       $(\'#Listdata\').on("click","li", function(){  
