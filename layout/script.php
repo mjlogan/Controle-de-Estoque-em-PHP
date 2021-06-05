@@ -85,9 +85,9 @@ $head = '<!DOCTYPE html>
 <script type="text/javascript">
  
  $(document).ready(function(){  
-      window.searchHisteresis = 5000;
+      window.searchHisteresis = 400;
       window.shouldSearch = true;
-      $(\'#cpfCliente\').keyup(function(){  
+      $(\'#infoCliente\').keyup(function(){  
         if(!window.shouldSearch)  return;
         else {
           setTimeout(function(){ window.shouldSearch = true; doSearch(); }, searchHisteresis);
@@ -96,7 +96,7 @@ $head = '<!DOCTYPE html>
       });
 
       function doSearch(){
-        var query = $(\'#cpfCliente\').val();
+        var query = $(\'#infoCliente\').val();
         if(query != "")  
         {  
              $.ajax({  
@@ -114,7 +114,7 @@ $head = '<!DOCTYPE html>
 
 
       $(\'#Listdata\').on("click","li", function(){  
-           $(\'#cpfCliente\').val($(this).text());  
+           $(\'#infoCliente\').val($(this).text());  
            $(\'#Listdata\').fadeOut();
            <!-- console.log(event.target);-->
       });

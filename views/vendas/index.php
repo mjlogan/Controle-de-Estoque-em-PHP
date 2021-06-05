@@ -77,7 +77,8 @@ echo '<div class="content-wrapper">
             <div class="box-body">
             <div class="col-lg-6">
               <div class="input-group">
-                <input type="text" class="form-control" id="cpfCliente" name="search" placeholder="Pesquisar Nome ou E-mail" autocomplete="off">
+                <!-- <input type="text" class="form-control" id="cpfCliente" name="search" placeholder="Pesquisar Nome ou E-mail" autocomplete="off"> -->
+                <input type="text" class="form-control" id="infoCliente" name="search" placeholder="Pesquisar Nome ou E-mail" autocomplete="off">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-save"></span></button>
                 </span>

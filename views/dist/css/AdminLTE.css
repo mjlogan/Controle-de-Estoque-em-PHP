@@ -24,6 +24,13 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+.licpf {
+  cursor: pointer;
+
+}
+.licpf:hover {
+  background-color: lightgrey;
+}
 /* Layout */
 .wrapper {
   height: 100%;
