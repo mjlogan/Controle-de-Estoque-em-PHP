@@ -116,6 +116,7 @@ $head = '<!DOCTYPE html>
       $(\'#Listdata\').on("click","li", function(){  
            $(\'#infoCliente\').val($(this).text());  
            $(\'#Listdata\').fadeOut();
+           $(\'#btnSearchCliente\').click();
            <!-- console.log(event.target);-->
       });
   });  

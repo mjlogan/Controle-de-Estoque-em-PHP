@@ -164,10 +164,10 @@ class Cliente extends Connect
 
     function searchdata($value){
       
-      $value = explode(' ', $value);
-      $valor = str_replace("." , "" , $value[0] ); // Primeiro tira os pontos
-      $valor = str_replace("-" , "" , $valor); // Depois tira o taço
-      $value = $valor;
+      $value = explode(' - ', $value);
+      // $valor = str_replace("." , "" , $value[0] ); // Primeiro tira os pontos
+      // $valor = str_replace("-" , "" , $valor); // Depois tira o taço
+      $value = $value[0];
 
       if(isset($value))  
       {  

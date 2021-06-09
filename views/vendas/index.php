@@ -52,7 +52,6 @@ echo '<div class="content-wrapper">
             $resps = $cliente->searchdata($_POST["search"]);  
             
               if($resps > 0 && $_POST['search'] != NULL){
-               echo($resps);
                 foreach ($resps['data'] as $resp) { 
 
                 //  $_SESSION['CPF'] = $resp['cpfCliente'];
@@ -62,8 +61,6 @@ echo '<div class="content-wrapper">
                 }
                 
               }
-          
-            unset($_POST['CPF']);
           }
 
   ?> 
@@ -80,7 +77,7 @@ echo '<div class="content-wrapper">
                 <!-- <input type="text" class="form-control" id="cpfCliente" name="search" placeholder="Pesquisar Nome ou E-mail" autocomplete="off"> -->
                 <input type="text" class="form-control" id="infoCliente" name="search" placeholder="Pesquisar Nome ou E-mail" autocomplete="off">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-save"></span></button>
+                  <button id="btnSearchCliente" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-save"></span></button>
                 </span>
               </div><!-- /input-group -->
               <div id="Listdata"></div>
@@ -206,8 +203,9 @@ echo '<div class="content-wrapper">
   <!-- /.box -->
 
   <!-- Tabela de produtos -->
-
-                   <input type="hidden" name="iduser" value="'.$idUsuario.'">
+  <?php
+                echo'<input type="hidden" name="iduser" value="'.$idUsuario.'">';
+  ?>
                 <!-- /.box-body -->
 
                 <div class="box-footer">
