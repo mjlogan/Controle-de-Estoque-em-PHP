@@ -11,36 +11,36 @@ class Vendas extends Connect
 
     public function itensVerify($iditem, $quant, $perm){
 
-    if($perm < 1 || $perm > 2){
-      $_SESSION['msg'] =  'Erro - Você não tem permissão!'; 
-      header('Location: ../../views/vendas/index.php');
-      exit();
-    }
-
-    $this->query = "SELECT * FROM `itens`, `produtos` WHERE `idItens` = '$iditem' AND `Produto_CodRefProduto` = `CodRefProduto`";
-    $this->result = mysqli_query($this->SQL, $this->query) or die(mysqli_error($this->SQL));
-    $total = mysqli_num_rows($this->result);
-
-    if($total > 0){
-
-      if($row = mysqli_fetch_array($this->result)){
-
-        $q = $row['QuantItens'];
-        $v = $row['QuantItensVend'];
-        $quantotal = $v + $quant;
-
-        if($q >= $quantotal){
-
-          return array('status' => '1', 'NomeProduto' => $row['NomeProduto'], );
-        }else{
-          $estoque = $q - $v;
-          return array('status' => '0', 'NomeProduto' => $row['NomeProduto'], 'estoque'=> $estoque);
-        }
+      if($perm < 1 || $perm > 2){
+        $_SESSION['msg'] =  'Erro - Você não tem permissão!'; 
+        header('Location: ../../views/vendas/index.php');
+        exit();
       }
-    }else{
+
+      $this->query = "SELECT * FROM `itens`, `produtos` WHERE `Produto_CodRefProduto` = '$iditem' AND `Produto_CodRefProduto` = `CodRefProduto`";
+      $this->result = mysqli_query($this->SQL, $this->query) or die(mysqli_error($this->SQL));
+      $total = mysqli_num_rows($this->result);
+
+      if($total > 0){
+
+        if($row = mysqli_fetch_array($this->result)){
+
+          $q = $row['QuantItens'];
+          $v = $row['QuantItensVend'];
+          $quantotal = $v + $quant;
+
+          if($q >= $quantotal){
+
+            return array('status' => '1', 'NomeProduto' => $row['NomeProduto'], );
+          }else{
+            $estoque = $q - $v;
+            return array('status' => '0', 'NomeProduto' => $row['NomeProduto'], 'estoque'=> $estoque);
+          }
+        }
+    } else{
 
       $_SESSION['msg'] =  '<div class="alert alert-warning">
-      <strong>Ops!</strong> Produto ('.$iditem.') não encontrado!</div>';
+      <strong>Ops!</strong> Produto ('.$iditem.') não encontrado! '.$this->query.'</div>';
       
       header('Location: ../../views/vendas/index.php');
       exit;
@@ -50,9 +50,9 @@ class Vendas extends Connect
 	public function itensVendidos($iditem, $quant, $cliente, $email, $cpfcliente, $cart, $idUsuario, $perm)
 	{
 
-    	$cpfcliente = intval(Connect::limpaCPF_CNPJ($cpfcliente));
+    	// $cpfcliente = intval(Connect::limpaCPF_CNPJ($cpfcliente));
 
-        if($perm != 2){
+        if($perm < 1 || $perm > 2){
           $_SESSION['msg'] =  '<div class="alert alert-danger alert-dismissible">
                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                          <strong>Erro!</strong> Você não tem permissão! </div>'; 
@@ -78,7 +78,8 @@ class Vendas extends Connect
 
                         $valor = ($row['ValVendItens'] * $quant);
                          
-                        $id = Vendas::idCliente($cpfcliente); // Verifica se o cliente existe no DB.
+                        // $id = Vendas::idCliente($cpfcliente); // Verifica se o cliente existe no DB.
+                        $id = Vendas::idClienteFromEmail($email); // Verifica se o cliente existe no DB.
 
 
                         if($id > 0){ // Se o cliente existir, Retorne o ID do cliente
@@ -148,16 +149,27 @@ class Vendas extends Connect
 
   public function idcliente($cpfCliente){
 
-      $this->client = "SELECT * FROM `cliente` WHERE `cpfCliente` = '$cpfCliente'";
+    $this->client = "SELECT * FROM `cliente` WHERE `cpfCliente` = '$cpfCliente'";
 
-          if($this->resultcliente = mysqli_query($this->SQL, $this->client)  or die (mysqli_error($this->SQL))){
+        if($this->resultcliente = mysqli_query($this->SQL, $this->client)  or die (mysqli_error($this->SQL))){
 
-              $row = mysqli_fetch_array($this->resultcliente);
-              return $idCliente = $row['idCliente'];
-          }
+            $row = mysqli_fetch_array($this->resultcliente);
+            return $idCliente = $row['idCliente'];
+        }
+}
+
+  public function idclienteFromEmail($emailCliente){
+
+    $this->client = "SELECT * FROM `cliente` WHERE `EmailCliente` = '$emailCliente'";
+
+        if($this->resultcliente = mysqli_query($this->SQL, $this->client)  or die (mysqli_error($this->SQL))){
+
+            $row = mysqli_fetch_array($this->resultcliente);
+            return $idCliente = $row['idCliente'];
+        }
   }
 
-  //----------itemNome
+//----------itemNome
 
   public function itemNome($idItens){
 
