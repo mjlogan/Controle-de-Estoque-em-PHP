@@ -60,7 +60,7 @@ class Vendas extends Connect
           exit();
         }
 
-        $this->query = "SELECT * FROM `itens` WHERE `idItens`= '$iditem'";
+        $this->query = "SELECT * FROM `itens` WHERE `Produto_CodRefProduto`= '$iditem'";
         $this->result = mysqli_query($this->SQL, $this->query) or die(mysqli_error($this->SQL));
 
         if($this->result){
@@ -76,50 +76,49 @@ class Vendas extends Connect
 
         			if($q >= $quantotal){
 
-                        $valor = ($row['ValVendItens'] * $quant);
-                         
-                        // $id = Vendas::idCliente($cpfcliente); // Verifica se o cliente existe no DB.
-                        $id = Vendas::idClienteFromEmail($email); // Verifica se o cliente existe no DB.
+                $valor = ($row['ValVendItens'] * $quant);
+                  
+                // $id = Vendas::idCliente($cpfcliente); // Verifica se o cliente existe no DB.
+                $id = Vendas::idClienteFromEmail($email); // Verifica se o cliente existe no DB.
+
+                if($id > 0){ // Se o cliente existir, Retorne o ID do cliente
+                    $idCliente = $id; // ID do cliente
+                }else{
+
+                    $this->novoclient = "INSERT INTO `cliente`(`idCliente`, `NomeCliente`, `EmailCliente`, `cpfCliente`, `statusCliente`, `Usuario_idUsuario`) VALUES (NULL,'$cliente','$email','$cpfcliente',1,'$idUsuario')";
+
+                        if(mysqli_query($this->SQL, $this->novoclient) or die (mysqli_error($this->SQL))){
+                        $idCliente = mysqli_insert_id($this->SQL);
+                      }                            
+                }
+                
+                
+                $this->query = "INSERT INTO `vendas`(`idvendas`, `quantitens`, `valor`, `iditem`, `cart`, `cliente_idCliente`, `idusuario`) VALUES (NULL, '$quant', '$valor', '$iditem', '$cart', '$idCliente', '$idUsuario')";
+                if($this->result = mysqli_query($this->SQL, $this->query) or die (mysqli_error($this->SQL))){
 
 
-                        if($id > 0){ // Se o cliente existir, Retorne o ID do cliente
-                            $idCliente = $id; // ID do cliente
-                        }else{
+                $this->query = "UPDATE `itens` SET `QuantItensVend` = `QuantItensVend` + '$quantotal' WHERE `Produto_CodRefProduto`= '$iditem'";
+                if($this->result = mysqli_query($this->SQL, $this->query) or die (mysqli_error($this->SQL))){
 
-                            $this->novoclient = "INSERT INTO `cliente`(`idCliente`, `NomeCliente`, `EmailCliente`, `cpfCliente`, `statusCliente`, `Usuario_idUsuario`) VALUES (NULL,'$cliente','$email','$cpfcliente',1,'$idUsuario')";
-
-                               if(mysqli_query($this->SQL, $this->novoclient) or die (mysqli_error($this->SQL))){
-                                $idCliente = mysqli_insert_id($this->SQL);
-                             }                            
-                        }
-                        
-                        
-                        $this->query = "INSERT INTO `vendas`(`idvendas`, `quantitens`, `valor`, `iditem`, `cart`, `cliente_idCliente`, `idusuario`) VALUES (NULL, '$quant', '$valor', '$iditem', '$cart', '$idCliente', '$idUsuario')";
-                        if($this->result = mysqli_query($this->SQL, $this->query) or die (mysqli_error($this->SQL))){
-
-
-        				$this->query = "UPDATE `itens` SET `QuantItensVend` = '$quantotal' WHERE `idItens`= '$iditem'";
-        				if($this->result = mysqli_query($this->SQL, $this->query) or die (mysqli_error($this->SQL))){
-
-        					unset($_SESSION['itens']); //limpa itens da lista
+                  unset($_SESSION['itens']); //limpa itens da lista
                             
                             $_SESSION['notavd'] = $cart;
                             $_SESSION['msg'] = '<div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <strong>Sucesso!</strong> Venda efetuada!</div>';
 
-                        }
+                }
 
-        				}else{
-        					 $_SESSION['msg'] =  '<div class="alert alert-danger alert-dismissible">
-                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                         <strong>Erro!</strong> Venda não efetuada! </div>';
-                        
-                        header('Location: ../../views/vendas/');
-                        exit();  
-        				}
+              } else {
+                  $_SESSION['msg'] =  '<div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Erro!</strong> Venda não efetuada! </div>';
+                      
+                      header('Location: ../../views/vendas/');
+                      exit();  
+              }
 
-        			}else{
+        			} else{
 
         				$estoque = $row['QuantItens'] - $row['QuantItensVend'];
                       
@@ -131,9 +130,7 @@ class Vendas extends Connect
 
         			}
 
-                    header('Location: ../../views/vendas/notavd.php');
-
-
+              header('Location: ../../views/vendas/notavd.php');
         		}
 
 
